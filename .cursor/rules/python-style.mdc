@@ -1,0 +1,39 @@
+---
+description: Стиль и современный синтаксис Python
+globs: "**/*.py"
+alwaysApply: false
+---
+
+# Python: стиль и синтаксис
+
+Писать на Python 3.11+. Код простой, типизированный, без «магии».
+
+## Обязательно
+
+- аннотации типов у публичных функций и полей моделей
+- `pathlib.Path`, не склейка путей строками
+- f-строки, не `%` и не `.format()`
+- `match` / `case` для ветвления по статусам и режимам
+- Pydantic v2 (`model_dump`, не `.dict()`)
+- SQLAlchemy 2: `select()`, `Mapped[]`, `mapped_column()`
+- зависимости FastAPI через `Depends`
+- ошибки HTTP через `HTTPException`
+
+## Пример
+
+```python
+# ❌
+def get_note(id):
+    return db.execute("select * from notes where id=%s" % id)
+
+# ✅
+def get_note(session: Session, note_id: int) -> Note | None:
+    return session.scalars(select(Note).where(Note.id == note_id)).first()
+```
+
+## Имена
+
+- файлы и функции: `snake_case`
+- классы: `PascalCase`
+- константы: `UPPER_SNAKE`
+- маршруты: глагол в функции (`create_note`, `search_notes`)

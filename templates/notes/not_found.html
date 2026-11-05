@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Заметка не найдена{% endblock %}
+
+{% block content %}
+  <section class="rounded-2xl border border-dashed border-stone-300 bg-white px-6 py-12 text-center">
+    <h1 class="text-xl font-semibold">Заметка не найдена</h1>
+    <p class="mt-2 text-stone-600">Такой записи нет. Возможно, её уже удалили.</p>
+    <a href="{{ url_for('note_list') }}" class="mt-4 inline-flex rounded-lg bg-teal-700 px-4 py-2 text-sm font-medium text-white hover:bg-teal-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700">К списку заметок</a>
+  </section>
+{% endblock %}

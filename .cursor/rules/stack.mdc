@@ -1,0 +1,32 @@
+---
+description: Технологический стек демо-проекта
+alwaysApply: true
+---
+
+# Стек
+
+Использовать только этот набор. Новые библиотеки не добавлять без явной нужды.
+
+- Python 3.11+
+- FastAPI + Uvicorn
+- Jinja2-шаблоны (HTML на сервере)
+- SQLite через SQLAlchemy 2.x
+- Pydantic v2 для схем
+- локальная обработка текста (стандартная библиотека; при необходимости `razdel`)
+- статика: HTML + CSS на Tailwind (Play CDN допустим для демо)
+- минимум JS: только то, без чего страница не работает
+
+## Запрещённый стек
+
+- React, Next.js, Vue, Node-бэкенд
+- PostgreSQL, Redis, Elasticsearch
+- OpenAI, Groq и любые платные/облачные ИИ-API
+- Docker, Kubernetes, CI-облако — пока пользователь не попросил
+
+## Структура
+
+```
+app/           # FastAPI, модели, сервисы
+templates/     # Jinja2
+static/        # css, js
+```
